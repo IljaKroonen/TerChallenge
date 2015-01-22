@@ -188,6 +188,14 @@ public class PenduActivity extends Activity{
             result.setText("DEFAITE !");
             scoreDialog.setVisibility(View.GONE);
             scoreTexte.setVisibility(View.GONE);
+            int i=0;
+            for (char c:game.getFinishedWord()) {
+
+                if(c != 0) {
+                    textResult.get(i).setText(c+"");
+                }
+                i++;
+            }
         }
         play.setOnClickListener(new View.OnClickListener() {
 
