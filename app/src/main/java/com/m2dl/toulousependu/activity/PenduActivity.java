@@ -123,6 +123,9 @@ public class PenduActivity extends Activity{
         Button button = (Button) v;
         char lettre = button.getText().charAt(0);
         if (game.inputLetter(lettre)) {
+            if(!config.getSoundSetting()) {
+                MediaPlayer.create(getApplicationContext(), R.raw.success).start();
+            }
             button.setTextColor(Color.GREEN);
             button.setEnabled(false);
             int i = 0;
@@ -133,6 +136,9 @@ public class PenduActivity extends Activity{
                 i++;
             }
         } else {
+            if(!config.getSoundSetting()) {
+                MediaPlayer.create(getApplicationContext(), R.raw.fail).start();
+            }
             GlobalVars.isDraw = false;
             button.setTextColor(Color.RED);
             button.setEnabled(false);
@@ -197,7 +203,9 @@ public class PenduActivity extends Activity{
 
 
     private void gameOver(boolean res) {
-        MediaPlayer.create(getApplicationContext(), R.raw.whoosh).start();
+        if(!config.getSoundSetting()) {
+            MediaPlayer.create(getApplicationContext(), R.raw.whoosh).start();
+        }
 
 
         dialog.show();
