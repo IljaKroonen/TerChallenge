@@ -111,10 +111,19 @@ public class PenduActivity extends Activity{
         dialog.setCancelable(false);
 
         TextView best = (TextView) dialog.findViewById(R.id.meilleurScore);
+        TextView scoreTexte = (TextView) dialog.findViewById(R.id.textScore);
         TextView scoreDialog = (TextView) dialog.findViewById(R.id.score);
         Button play = (Button) dialog.findViewById(R.id.buttonStart);
         Button leaderboard = (Button) dialog.findViewById(R.id.buttonScore);
-
+        TextView result = (TextView) dialog.findViewById(R.id.result);
+        if (res == true){
+           result.setText("VICTOIRE !");
+        }
+        else{
+            result.setText("DEFAITE !");
+            scoreDialog.setVisibility(View.GONE);
+            scoreTexte.setVisibility(View.GONE);
+        }
         play.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -132,6 +141,9 @@ public class PenduActivity extends Activity{
             }
 
         });
+
+
+
     }
 
     public void createDialog() {
