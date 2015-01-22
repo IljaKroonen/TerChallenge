@@ -49,7 +49,7 @@ public class ScoresActivity extends Activity {
         ((TextView) findViewById(R.id.mediumTextView)).setText(mediumStr);
 
         String hardStr;
-        int hardHs = config.getEasyHighScore();
+        int hardHs = config.getHardHighScore();
         if (hardHs == -1) {
             hardStr = "Difficile: pas de meilleur score";
         } else {
@@ -58,7 +58,7 @@ public class ScoresActivity extends Activity {
         ((TextView) findViewById(R.id.hardTextView)).setText(hardStr);
 
         String extremeStr;
-        int extremeHs = config.getEasyHighScore();
+        int extremeHs = config.getExtremeHighScore();
         if (extremeHs == -1) {
             extremeStr = "Extrême: pas de meilleur score";
         } else {
