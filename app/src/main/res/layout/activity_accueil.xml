@@ -40,8 +40,7 @@
         android:layout_marginRight="100dp"
         android:layout_marginTop="50dp"
         android:text="@string/best_score"
-        android:id="@+id/scoresButton"
-        android:onClick="displayScores" />
+        android:id="@+id/scoresButton" />
 
     </LinearLayout>
 

@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Facile:"
-            android:id="@+id/textView"
+            android:id="@+id/easyTextView"
             android:layout_gravity="center_horizontal"
             android:height="50dp"
             android:textSize="30dp" />
@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Moyen:"
-            android:id="@+id/textView2"
+            android:id="@+id/mediumTextView"
             android:layout_gravity="center_horizontal"
             android:height="50dp"
             android:textSize="30dp" />
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Difficile:"
-            android:id="@+id/textView3"
+            android:id="@+id/hardTextView"
             android:layout_gravity="center_horizontal"
             android:height="50dp"
             android:textSize="30dp" />
@@ -45,9 +45,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Extrême:"
-            android:id="@+id/textView4"
+            android:id="@+id/extremeTextView"
             android:layout_gravity="center_horizontal"
             android:height="50dp"
             android:textSize="30dp" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/backButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
