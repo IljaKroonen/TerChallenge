@@ -29,7 +29,8 @@ public class CsvWordProvider implements IWordProvider {
     public CsvWordProvider(Context context, int resource) throws IOException {
         InputStream is = context.getResources().openRawResource(resource);
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"));
+        reader.readLine();
 
         List<Row> rows = new ArrayList<>();
         int maxDifficultyOccurences = 0;
@@ -37,6 +38,9 @@ public class CsvWordProvider implements IWordProvider {
         try {
             String line;
             while ((line = reader.readLine()) != null) {
+                if (line.equals("")) {
+                    break;
+                }
                 String[] spl = line.split(separator);
                 Row row = new Row(spl);
                 rows.add(row);
@@ -78,8 +82,8 @@ public class CsvWordProvider implements IWordProvider {
 
     private class Row {
         public Row(String[] spl) {
-            word = spl[2];
-            occurences = Integer.parseInt(spl[3]);
+            word = spl[1];
+            occurences = Integer.parseInt(spl[2]);
         }
 
         public String word;
