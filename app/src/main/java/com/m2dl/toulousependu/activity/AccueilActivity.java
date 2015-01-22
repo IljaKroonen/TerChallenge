@@ -1,17 +1,21 @@
-package com.m2dl.toulousependu;
+package com.m2dl.toulousependu.activity;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
+import com.m2dl.toulousependu.R;
 
-public class Accueil extends ActionBarActivity {
+/**
+ * Created by Romain on 22/01/2015.
+ */
+public class AccueilActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
     }
+
+
 
 }
