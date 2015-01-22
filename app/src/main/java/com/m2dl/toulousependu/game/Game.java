@@ -8,7 +8,7 @@ import java.util.Locale;
  * In-memory representation of a game.
  * Created by Ilja on 22/01/2015.
  */
-public class Game {
+public class Game implements IGame {
     private static final int LIVES = 6;
     private static final int MISS_SCORE_PENALTY = 10;
 
