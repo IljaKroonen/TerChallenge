@@ -54,10 +54,10 @@ public class PenduActivity extends Activity{
         String mot = recupGlobalvar();
         char lettre;
 
-
-        for (int i = 0 ; i < mot.length() ;i++)
-           lettre=mot.charAt(i);
+        for (int i = 0 ; i < mot.length() ;i++) {
+            lettre = mot.charAt(i);
             TextView textView = new TextView(this);
+            textView.setText(lettre+"");
             textView.setBackgroundResource(R.drawable.letter_pendu);
             textView.setGravity(Gravity.CENTER);
             textView.setTextSize(60);
@@ -66,6 +66,7 @@ public class PenduActivity extends Activity{
             textView.setLayoutParams(llp);
             LinearLayout result = (LinearLayout) findViewById(R.id.layout_result);
             result.addView(textView);
+        }
 
     }
 

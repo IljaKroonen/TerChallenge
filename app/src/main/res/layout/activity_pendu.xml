@@ -27,31 +27,6 @@
         android:orientation="horizontal"
         android:id="@+id/layout_result">
 
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/letter_pendu"
-        android:gravity="center"
-        android:layout_margin="5dp"
-        android:textSize="60sp"
-        android:text="Q"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/letter_pendu"
-            android:gravity="center"
-            android:layout_margin="5dp"
-            android:textSize="60sp"
-            android:text="Q"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/letter_pendu"
-            android:gravity="center"
-            android:layout_margin="5dp"
-            android:textSize="60sp"
-            android:text=""/>
     </LinearLayout>
 
     <LinearLayout
