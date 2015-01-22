@@ -61,6 +61,9 @@ public class Game {
     }
 
     public boolean inputLetter(char l) {
+        if (isFinished()) {
+            throw new RuntimeException("Game was already finished");
+        }
         boolean present = false;
 
         for (int i = 0; i < wordWithoutAccents.length; i++) {
