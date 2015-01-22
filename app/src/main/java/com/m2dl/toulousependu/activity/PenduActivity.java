@@ -1,18 +1,25 @@
 package com.m2dl.toulousependu.activity;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.m2dl.toulousependu.R;
@@ -36,6 +43,7 @@ public class PenduActivity extends Activity{
     private Game game;
     private String mot ="";
     private ArrayList<TextView> textResult;
+    private Dialog dialog;
 
 
     @Override
@@ -46,6 +54,7 @@ public class PenduActivity extends Activity{
         pendu = (DrawingView) findViewById(R.id.pendu);
         pendu.setOnTouchListener(pendu);
         affichageLettre();
+        createDialog();
     }
 
     public void letter(View v) {
@@ -94,5 +103,61 @@ public class PenduActivity extends Activity{
     }
 
 
+    private void gameOver() {
+        MediaPlayer.create(getApplicationContext(), R.raw.whoosh).start();
+
+//        scoreDao.open();
+//        int bestScore = scoreDao.setScore(nbScore);
+//        scoreDao.close();
+        dialog.show();
+        dialog.setCancelable(false);
+
+        TextView best = (TextView) dialog.findViewById(R.id.meilleurScore);
+        TextView scoreDialog = (TextView) dialog.findViewById(R.id.score);
+        Button play = (Button) dialog.findViewById(R.id.buttonStart);
+        Button leaderboard = (Button) dialog.findViewById(R.id.buttonScore);
+
+//        scoreDialog.setText(nbScore+"");
+//        best.setText(bestScore+"");
+
+        play.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this,MainActivity.class);
+//                startActivity(intent);
+            }
+
+        });
+
+        leaderboard.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this,LeaderBoard.class);
+//                startActivity(intent);
+            }
+
+        });
+    }
+
+    public void createDialog() {
+        dialog = new Dialog(this,R.style.PauseDialog);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_finish);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        dialog.getWindow().setAttributes(lp);
+//
+//        RelativeLayout layout = (RelativeLayout) dialog.findViewById(R.id.layoutDialog);
+//        layout.addView(adView);
+//
+//        // Chargez l'objet adView avec la demande d'annonce.
+//        adView.loadAd(adRequest);
+    }
 
 }

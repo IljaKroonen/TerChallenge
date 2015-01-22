@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000" >
+    
+    <RelativeLayout
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutDialog">
+    </RelativeLayout>
+    
+	<RelativeLayout
+	    android:layout_below="@+id/layoutDialog"
+	    android:layout_marginTop="10dp"
+	    android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+	    >
+	    
+	
+    
+    <LinearLayout 
+        android:id="@+id/layoutMeilleurScore"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical"
+        android:background="@drawable/background_dialog">
+        <TextView
+            android:id="@+id/textMeilleurScore"
+            android:text="BEST"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"            
+            android:layout_marginRight="50dp"    
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#850A0A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/meilleurScore"
+            android:text="73"
+            android:layout_marginLeft="50dp"            
+            android:layout_marginRight="50dp"           
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/textScore"
+            android:text="SCORE"
+            android:layout_gravity="center"
+            android:textColor="#850A0A"
+            android:textSize="20sp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/score"
+            android:text="3"
+            android:layout_marginLeft="50dp"   
+            android:layout_marginBottom="10dp"         
+            android:layout_marginRight="50dp"           
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+    
+    
+    <LinearLayout 
+        android:id="@+id/layoutButton"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutMeilleurScore" 
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonStart"
+            android:layout_marginLeft="10dp"            
+            android:layout_marginRight="10dp"    
+            android:background="@drawable/button_play"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            />
+        <Button
+            android:id="@+id/buttonScore"
+            android:layout_marginLeft="10dp"            
+            android:layout_marginRight="10dp"    
+            android:background="@drawable/button_score"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:onClick="share"
+            />
+        
+    </LinearLayout>
+    
+   </RelativeLayout>
+    
+</RelativeLayout>
