@@ -1,5 +1,7 @@
 package com.m2dl.toulousependu.game;
 
+import android.util.Log;
+
 import java.text.Normalizer;
 import java.util.Calendar;
 import java.util.Locale;
