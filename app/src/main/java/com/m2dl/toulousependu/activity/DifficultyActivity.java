@@ -37,6 +37,6 @@ public class DifficultyActivity extends Activity {
         Intent intent = new Intent(this,PenduActivity.class);
         intent.putExtra(TAG_DIFFICULTE,difficulty);
         startActivity(intent);
-        finish();
+
     }
 }
