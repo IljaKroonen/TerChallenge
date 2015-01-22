@@ -31,6 +31,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
+        android:onClick="facile"
         android:text="@string/facile"/>
 
     <Button
@@ -40,6 +41,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:layout_marginTop="50dp"
+        android:onClick="moyen"
         android:text="@string/moyen"/>
 
         <Button
@@ -49,6 +51,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
+            android:onClick="difficile"
             android:text="@string/difficile"/>
 
         <Button
@@ -58,6 +61,7 @@
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
             android:layout_marginTop="50dp"
+            android:onClick="extreme"
             android:text="@string/extreme"/>
 
     </LinearLayout>
