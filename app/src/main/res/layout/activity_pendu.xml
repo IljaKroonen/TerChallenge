@@ -23,6 +23,7 @@
             android:layout_height="150dp"
             android:layout_marginTop="50dp"
             android:layout_centerHorizontal="true"
+            android:background="@drawable/selector_drawing"
             android:id="@+id/pendu_tete"/>
 
         <com.m2dl.toulousependu.utils.DrawingView
