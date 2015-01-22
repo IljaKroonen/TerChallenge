@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.m2dl.toulousependu.var.GlobalVars;
+
 /**
  * Created by Romain on 22/01/2015.
  */
@@ -71,6 +73,7 @@ public class DrawingView extends View implements View.OnTouchListener {
             case MotionEvent.ACTION_UP:
                 drawCanvas.drawPath(drawPath, drawPaint);
                 drawPath.reset();
+                GlobalVars.isDraw = true;
                 break;
             default:
                 return false;

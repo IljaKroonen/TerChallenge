@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.m2dl.toulousependu.R;
 import com.m2dl.toulousependu.game.Game;
@@ -37,8 +38,6 @@ import java.util.ArrayList;
  */
 public class PenduActivity extends Activity{
 
-
-//    private DrawingView pendu;
     private DrawingView penduTete;
     private DrawingView penduCorps;
     private DrawingView penduBrasG;
@@ -58,13 +57,12 @@ public class PenduActivity extends Activity{
         setContentView(R.layout.activity_pendu);
         initDrawingView();
         difficulty = getIntent().getIntExtra(DifficultyActivity.TAG_DIFFICULTE,1);
-//        pendu = (DrawingView) findViewById(R.id.pendu);
-//        pendu.setOnTouchListener(pendu);
         affichageLettre();
         createDialog();
     }
 
     private void initDrawingView() {
+        GlobalVars.isDraw = true;
         penduTete = (DrawingView) findViewById(R.id.pendu_tete);
         penduTete.setOnTouchListener(penduTete);
         penduCorps = (DrawingView) findViewById(R.id.pendu_corps);
@@ -90,6 +88,10 @@ public class PenduActivity extends Activity{
     }
 
     public void letter(View v) {
+        if (!GlobalVars.isDraw) {
+            Toast.makeText(this,"Veuillez dessiner dans la zone définie avant de continuer à jouer",Toast.LENGTH_SHORT).show();
+            return;
+        }
         Button button = (Button) v;
         char lettre = button.getText().charAt(0);
         if (game.inputLetter(lettre)) {
@@ -103,6 +105,7 @@ public class PenduActivity extends Activity{
                 i++;
             }
         } else {
+            GlobalVars.isDraw = false;
             button.setTextColor(Color.RED);
             button.setEnabled(false);
             displayDrawZone();

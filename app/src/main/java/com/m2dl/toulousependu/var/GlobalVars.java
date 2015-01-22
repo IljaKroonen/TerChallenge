@@ -8,4 +8,5 @@ import com.m2dl.toulousependu.resourcehelpers.CsvWordProvider;
 public class GlobalVars {
 
     public static CsvWordProvider csvWordProvider = null;
+    public static boolean isDraw = true;
 }
