@@ -20,8 +20,8 @@ public class Game implements IGame {
     private Calendar stopTime;
 
     public Game(String word) {
-        String upper = word.toUpperCase(Locale.FRANCE);
-        this.word = upper.toCharArray();
+        word = word.toUpperCase(Locale.FRANCE);
+        this.word = word.toCharArray();
         word = Normalizer.normalize(word, Normalizer.Form.NFD);
         word = word.replaceAll("[^\\p{ASCII}]", "");
         wordWithoutAccents = word.toCharArray();
