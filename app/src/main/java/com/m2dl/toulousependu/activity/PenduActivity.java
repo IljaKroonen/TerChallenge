@@ -11,6 +11,7 @@ import android.graphics.Path;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -44,21 +45,45 @@ public class PenduActivity extends Activity{
     private DrawingView penduBradD;
     private DrawingView penduJambeG;
     private DrawingView penduJambeD;
+    private TextView textScore;
     private int difficulty;
     private Game game;
     private String mot ="";
     private ArrayList<TextView> textResult;
     private Dialog dialog;
 
+    private Handler myHandler;
+    private Runnable myRunnable = new Runnable() {
+        @Override
+        public void run() {
+            final int score = game.getScore();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    textScore.setText(score+"");
+                }
+            });
+            myHandler.postDelayed(this,1000);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pendu);
         initDrawingView();
+        textScore = (TextView) findViewById(R.id.scoreText);
         difficulty = getIntent().getIntExtra(DifficultyActivity.TAG_DIFFICULTE,1);
         affichageLettre();
         createDialog();
+        myHandler = new Handler();
+        myHandler.postDelayed(myRunnable,1000);
+    }
+
+    public void onPause() {
+        super.onPause();
+        if(myHandler != null)
+            myHandler.removeCallbacks(myRunnable); // On arrete le callback
     }
 
     private void initDrawingView() {
