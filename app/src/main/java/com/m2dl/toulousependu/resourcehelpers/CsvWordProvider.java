@@ -1,6 +1,7 @@
 package com.m2dl.toulousependu.resourcehelpers;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,20 +34,16 @@ public class CsvWordProvider implements IWordProvider {
         reader.readLine();
 
         List<Row> rows = new ArrayList<>();
-        int maxDifficultyOccurences = 0;
 
         try {
             String line;
             while ((line = reader.readLine()) != null) {
                 if (line.equals("")) {
-                    break;
+                    continue;
                 }
                 String[] spl = line.split(separator);
                 Row row = new Row(spl);
                 rows.add(row);
-                if (maxDifficultyOccurences < row.occurences) {
-                    maxDifficultyOccurences = row.occurences;
-                }
             }
         } finally {
             is.close();
@@ -56,15 +53,30 @@ public class CsvWordProvider implements IWordProvider {
             wordsByDifficulty.put(i, new ArrayList<String>());
         }
 
+        Map<String, Integer> occurences = new HashMap<>();
+        int maxDifficultyOccurences = 0;
+
+        // Truly inefficient =)
         for (Row r : rows) {
-            if (r.occurences < maxDifficultyOccurences / 4) {
-                wordsByDifficulty.get(4).add(r.word);
-            } else if (r.occurences < 2 * maxDifficultyOccurences / 4) {
-                wordsByDifficulty.get(3).add(r.word);
-            } else if (r.occurences < 3 * maxDifficultyOccurences / 4) {
-                wordsByDifficulty.get(2).add(r.word);
+            if (occurences.get(r.word) == null) {
+                occurences.put(r.word, r.occurences);
             } else {
-                wordsByDifficulty.get(1).add(r.word);
+                occurences.put(r.word, occurences.get(r.word) + r.occurences);
+            }
+            if (occurences.get(r.word) > maxDifficultyOccurences) {
+                maxDifficultyOccurences = occurences.get(r.word);
+            }
+        }
+
+        for (Map.Entry<String, Integer> entry : occurences.entrySet()) {
+            if (entry.getValue() < maxDifficultyOccurences / 50) {
+                wordsByDifficulty.get(4).add(entry.getKey());
+            } else if (entry.getValue() < maxDifficultyOccurences / 10) {
+                wordsByDifficulty.get(3).add(entry.getKey());
+            } else if (entry.getValue() < maxDifficultyOccurences / 5) {
+                wordsByDifficulty.get(2).add(entry.getKey());
+            } else {
+                wordsByDifficulty.get(1).add(entry.getKey());
             }
         }
     }
