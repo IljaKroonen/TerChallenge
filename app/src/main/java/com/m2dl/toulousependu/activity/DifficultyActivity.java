@@ -9,6 +9,8 @@ import com.m2dl.toulousependu.R;
 
 public class DifficultyActivity extends Activity {
 
+    public static String TAG_DIFFICULTE = "DIFFICULTE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,23 +18,24 @@ public class DifficultyActivity extends Activity {
     }
 
     public void facile(View v){
-        startGame();
+        startGame(1);
     }
 
     public void moyen(View v){
-        startGame();
+        startGame(2);
     }
 
     public void difficile(View v){
-        startGame();
+        startGame(3);
     }
 
     public void extreme(View v){
-        startGame();
+        startGame(4);
     }
 
-    private void startGame() {
+    private void startGame(int difficulty) {
         Intent intent = new Intent(this,PenduActivity.class);
+        intent.putExtra(TAG_DIFFICULTE,difficulty);
         startActivity(intent);
         finish();
     }

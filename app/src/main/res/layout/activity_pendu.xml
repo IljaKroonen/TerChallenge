@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="5">
 
         <com.m2dl.toulousependu.utils.DrawingView
             android:layout_width="match_parent"
@@ -21,8 +21,42 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/letter_pendu"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:textSize="60sp"
+        android:text="Q"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/letter_pendu"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:textSize="60sp"
+            android:text="Q"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/letter_pendu"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:textSize="60sp"
+            android:text=""/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="3"
         android:orientation="vertical">
 
         <LinearLayout

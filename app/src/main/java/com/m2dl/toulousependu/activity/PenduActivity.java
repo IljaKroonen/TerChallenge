@@ -23,12 +23,14 @@ import org.w3c.dom.Text;
 public class PenduActivity extends Activity{
 
 
-    DrawingView pendu;
+    private DrawingView pendu;
+    private int difficulty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pendu);
+        difficulty = getIntent().getIntExtra(DifficultyActivity.TAG_DIFFICULTE,1);
         pendu = (DrawingView) findViewById(R.id.pendu);
         pendu.setOnTouchListener(pendu);
     }

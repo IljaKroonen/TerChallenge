@@ -11,5 +11,6 @@
     <string name="moyen">MOYEN</string>
     <string name="difficile">DIFFICILE</string>
     <string name="extreme">EXTREME</string>
+    <string name="csv_error">Impossible de récupérer les données du jeu. Veuillez relancer l\'application</string>
 
 </resources>
