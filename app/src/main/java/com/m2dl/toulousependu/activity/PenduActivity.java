@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.m2dl.toulousependu.R;
 import com.m2dl.toulousependu.game.Game;
+import com.m2dl.toulousependu.utils.Config;
 import com.m2dl.toulousependu.utils.DrawingView;
 import com.m2dl.toulousependu.var.GlobalVars;
 
@@ -51,6 +52,7 @@ public class PenduActivity extends Activity{
     private String mot ="";
     private ArrayList<TextView> textResult;
     private Dialog dialog;
+    private Config config;
 
     private Handler myHandler;
     private Runnable myRunnable = new Runnable() {
@@ -60,7 +62,7 @@ public class PenduActivity extends Activity{
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    textScore.setText(score+"");
+                    textScore.setText(score + "");
                 }
             });
             myHandler.postDelayed(this,1000);
@@ -72,6 +74,7 @@ public class PenduActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pendu);
         initDrawingView();
+        config = new Config(this);
         textScore = (TextView) findViewById(R.id.scoreText);
         difficulty = getIntent().getIntExtra(DifficultyActivity.TAG_DIFFICULTE,1);
         affichageLettre();
@@ -208,6 +211,9 @@ public class PenduActivity extends Activity{
         TextView result = (TextView) dialog.findViewById(R.id.result);
         if (res == true){
            result.setText("VICTOIRE !");
+           int bestScore = getBestScore();
+            best.setText(bestScore+"");
+            scoreDialog.setText(game.getScore()+"");
         }
         else{
             result.setText("DEFAITE !");
@@ -243,6 +249,42 @@ public class PenduActivity extends Activity{
 
 
 
+    }
+
+    private int getBestScore() {
+        int score = game.getScore();
+        int bestScore = 0;
+        switch (difficulty) {
+            case 1 :
+                bestScore = config.getEasyHighScore();
+                if (bestScore>score || bestScore==-1) {
+                    config.setEasyHighScore(score);
+                    return score;
+                }
+                return bestScore;
+            case 2 :
+                bestScore = config.getMediumHighScore();
+                if (bestScore>score || bestScore==-1) {
+                    config.setMediumHighScore(score);
+                    return score;
+                }
+                return bestScore;
+            case 3 :
+                bestScore = config.getHardHighScore();
+                if (bestScore>score || bestScore==-1) {
+                    config.setHardHighScore(score);
+                    return score;
+                }
+                return bestScore;
+            case 4 :
+                bestScore = config.getExtremeHighScore();
+                if (bestScore>score|| bestScore==-1) {
+                    config.setExtremeHighScore(score);
+                    return score;
+                }
+                return bestScore;
+        }
+        return bestScore;
     }
 
     public void createDialog() {
