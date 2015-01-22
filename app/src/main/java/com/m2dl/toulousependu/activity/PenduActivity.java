@@ -80,13 +80,17 @@ public class PenduActivity extends Activity{
         affichageLettre();
         createDialog();
         myHandler = new Handler();
-        myHandler.postDelayed(myRunnable,1000);
     }
 
     public void onPause() {
         super.onPause();
         if(myHandler != null)
             myHandler.removeCallbacks(myRunnable); // On arrete le callback
+    }
+
+    public void onResume() {
+        super.onResume();
+        myHandler.postDelayed(myRunnable,1000);
     }
 
     private void initDrawingView() {
@@ -139,6 +143,7 @@ public class PenduActivity extends Activity{
             if(!config.getSoundSetting()) {
                 MediaPlayer.create(getApplicationContext(), R.raw.fail).start();
             }
+            textScore.setText(game.getScore() + "");
             GlobalVars.isDraw = false;
             button.setTextColor(Color.RED);
             button.setEnabled(false);
