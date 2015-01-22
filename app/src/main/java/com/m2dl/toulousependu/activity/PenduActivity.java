@@ -250,6 +250,10 @@ public class PenduActivity extends Activity{
 
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(PenduActivity.this, ScoresActivity.class);
+                startActivity(intent);
+                finish();
+
 
             }
 
