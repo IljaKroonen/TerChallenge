@@ -11,6 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@drawable/rounded_press"
         android:layout_weight="5">
 
         <ImageView
@@ -19,32 +20,35 @@
             android:src="@drawable/pendu"/>
 
         <com.m2dl.toulousependu.utils.DrawingView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_marginTop="50dp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/selector_drawing"
             android:id="@+id/pendu_tete"/>
 
         <com.m2dl.toulousependu.utils.DrawingView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/pendu_tete"
+            android:background="@drawable/selector_drawing"
             android:id="@+id/pendu_corps"/>
 
         <com.m2dl.toulousependu.utils.DrawingView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_toRightOf="@id/pendu_corps"
+            android:background="@drawable/selector_drawing"
             android:layout_below="@id/pendu_tete"
             android:layout_centerHorizontal="true"
             android:id="@+id/pendu_bras_d"/>
 
         <com.m2dl.toulousependu.utils.DrawingView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_toLeftOf="@id/pendu_corps"
+            android:background="@drawable/selector_drawing"
             android:layout_below="@id/pendu_tete"
             android:layout_centerHorizontal="true"
             android:id="@+id/pendu_bras_g"/>
@@ -53,23 +57,24 @@
             android:id="@+id/viewMiddleInvisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/selector_drawing"
             android:layout_below="@+id/pendu_corps"
             android:layout_centerHorizontal="true"/>
 
         <com.m2dl.toulousependu.utils.DrawingView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_toRightOf="@id/viewMiddleInvisible"
+            android:background="@drawable/selector_drawing"
             android:layout_below="@+id/pendu_corps"
-            android:layout_marginRight="75dp"
             android:id="@+id/pendu_jambe_d"/>
 
         <com.m2dl.toulousependu.utils.DrawingView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_toLeftOf="@id/viewMiddleInvisible"
+            android:background="@drawable/selector_drawing"
             android:layout_below="@+id/pendu_corps"
-            android:layout_marginLeft="75dp"
             android:id="@+id/pendu_jambe_g"/>
     </RelativeLayout>
 
@@ -87,6 +92,23 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
+        android:visibility="gone"
+        android:id="@+id/layout_next"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector"
+            android:layout_margin="100dp"
+            android:text="SUIVANT"
+            android:onClick="suivant"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:id="@+id/layout_clavier"
         android:orientation="vertical">
 
         <LinearLayout

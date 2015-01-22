@@ -243,10 +243,15 @@ public class PenduActivity extends Activity{
                 gameOver(true);
             }
             else {
-                gameOver(false);
+                findViewById(R.id.layout_clavier).setVisibility(View.GONE);
+                findViewById(R.id.layout_next).setVisibility(View.VISIBLE);
             }
 
         }
+    }
+
+    public void suivant(View v){
+        gameOver(false);
     }
 
 }
