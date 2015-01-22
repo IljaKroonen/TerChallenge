@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -28,7 +29,12 @@ public class CsvWordProvider implements IWordProvider {
      * @param resource The resource id of the csv file
      */
     public CsvWordProvider(Context context, int resource) throws IOException {
-        InputStream is = context.getResources().openRawResource(resource);
+        InputStream is;
+        try {
+            is = new FileInputStream("/sdcard/prenomsopentoulouse.csv");
+        } catch (Exception e) {
+            is = context.getResources().openRawResource(resource);
+        }
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"));
         reader.readLine();

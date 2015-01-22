@@ -3,12 +3,14 @@ package com.m2dl.toulousependu.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.m2dl.toulousependu.R;
+import com.m2dl.toulousependu.resourcehelpers.ToulouseDataDownloader;
 import com.m2dl.toulousependu.utils.Config;
 
 /**
@@ -58,6 +60,10 @@ public class AccueilActivity extends Activity {
         } else {
             soundButton.setImageResource(R.drawable.unmute);
         }
+    }
+
+    public void downloadData(View v) {
+        new ToulouseDataDownloader().execute(this);
     }
 
 }
