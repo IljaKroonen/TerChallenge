@@ -12,55 +12,70 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
         android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="100dp"
-        android:layout_marginLeft="100dp"
-        android:textColor="#000000"
-        android:textSize="40sp"
-        android:gravity="center"
-        android:text="Choisis la difficulté"/>
-
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/selector"
-        android:layout_marginTop="50dp"
+        android:drawableLeft="@drawable/facile"
+        android:gravity="left|center_vertical"
+        android:paddingRight="40dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
+        android:layout_marginTop="50dp"
         android:onClick="facile"
+        android:textSize="32sp"
         android:text="@string/facile"/>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/selector"
+        android:drawableLeft="@drawable/moyen"
+        android:gravity="left|center_vertical"
+        android:paddingRight="40dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:layout_marginTop="50dp"
         android:onClick="moyen"
+         android:textSize="32sp"
         android:text="@string/moyen"/>
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/selector"
-            android:layout_marginTop="50dp"
+            android:drawableLeft="@drawable/difficile"
+            android:gravity="left|center_vertical"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
+            android:layout_marginTop="50dp"
+            android:textSize="32sp"
             android:onClick="difficile"
             android:text="@string/difficile"/>
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/selector"
+            android:drawableLeft="@drawable/extreme"
+            android:gravity="left|center_vertical"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
             android:layout_marginTop="50dp"
+            android:textSize="32sp"
             android:onClick="extreme"
             android:text="@string/extreme"/>
 
