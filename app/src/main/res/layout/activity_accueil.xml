@@ -61,4 +61,20 @@
         android:onClick="toggleSound"
         android:id="@+id/muteButton"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mise à jour dictionnaire"
+        android:id="@+id/dataButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:onClick="downloadData" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/downloadTextView"
+        android:layout_alignTop="@+id/dataButton"
+        android:layout_toEndOf="@+id/dataButton" />
+
 </RelativeLayout>
