@@ -2,6 +2,7 @@ package com.m2dl.toulousependu.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +32,9 @@ public class AccueilActivity extends Activity {
     public void newGame(View v) {
         Intent intent = new Intent(this,DifficultyActivity.class);
         startActivity(intent);
+    }
+
+    public void toggleSound(View v) {
     }
 
 }
