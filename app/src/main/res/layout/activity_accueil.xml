@@ -29,7 +29,8 @@
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:text="@string/new_game"
-        android:onClick="newGame"/>
+        android:onClick="newGame"
+        android:id="@+id/newGameButton" />
 
     <Button
         android:layout_width="match_parent"
@@ -38,7 +39,9 @@
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:layout_marginTop="50dp"
-        android:text="@string/best_score"/>
+        android:text="@string/best_score"
+        android:id="@+id/scoresButton"
+        android:onClick="displayScores" />
 
     </LinearLayout>
 

@@ -23,6 +23,9 @@ public class AccueilActivity extends Activity {
         startActivity(intent);
     }
 
-
+    public void displayScores(View v) {
+        Intent intent = new Intent(this, ScoresActivity.class);
+        startActivity(intent);
+    }
 
 }
