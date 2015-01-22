@@ -74,7 +74,7 @@ public class PenduActivity extends Activity{
             button.setTextColor(Color.RED);
             button.setEnabled(false);
         }
-        Log.d("LETTER",button.getText()+"");
+        resultatGame();
     }
 
 
@@ -152,12 +152,22 @@ public class PenduActivity extends Activity{
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.MATCH_PARENT;
         dialog.getWindow().setAttributes(lp);
-//
-//        RelativeLayout layout = (RelativeLayout) dialog.findViewById(R.id.layoutDialog);
-//        layout.addView(adView);
-//
-//        // Chargez l'objet adView avec la demande d'annonce.
-//        adView.loadAd(adRequest);
+
+    }
+
+
+    public void resultatGame(){
+
+        if (game.isFinished() == true) {
+
+            if (game.isVictory() == true) {
+                gameOver();
+            }
+            else {
+                gameOver();
+            }
+
+        }
     }
 
 }
