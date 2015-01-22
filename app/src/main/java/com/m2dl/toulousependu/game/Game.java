@@ -1,6 +1,7 @@
 package com.m2dl.toulousependu.game;
 
 import java.text.Normalizer;
+import java.util.Calendar;
 import java.util.Locale;
 
 /**
@@ -9,11 +10,14 @@ import java.util.Locale;
  */
 public class Game {
     private static final int LIVES = 6;
+    private static final int MISS_SCORE_PENALTY = 10;
 
     private char[] word;
     private char[] wordWithoutAccents;
     private char[] found;
-    private int remainingLives;
+    private int remainingLives = LIVES;
+    private Calendar startTime = Calendar.getInstance();
+    private Calendar stopTime;
 
     public Game(String word) {
         String upper = word.toUpperCase(Locale.FRANCE);
@@ -33,11 +37,17 @@ public class Game {
     }
 
     public int getScore() {
-        return 0;
+        Calendar c = stopTime;
+        if (c == null) {
+            c = Calendar.getInstance();
+        }
+
+        return (int)(MISS_SCORE_PENALTY * (LIVES - remainingLives) +
+                (c.getTimeInMillis() - startTime.getTimeInMillis()) / 1000);
     }
 
-    public boolean isFinished() {
-        if (remainingLives >= LIVES) {
+    public boolean isFinishedP() {
+        if (remainingLives <= 0) {
             return true;
         }
 
@@ -48,6 +58,10 @@ public class Game {
         }
 
         return true;
+    }
+
+    public boolean isFinished() {
+        return stopTime != null;
     }
 
     public boolean isVictory() {
@@ -74,7 +88,11 @@ public class Game {
         }
 
         if (!present) {
-            remainingLives++;
+            remainingLives--;
+        }
+
+        if (isFinishedP()) {
+            stopTime = Calendar.getInstance();
         }
 
         return present;
