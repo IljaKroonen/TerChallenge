@@ -48,6 +48,9 @@ public class CsvWordProvider implements IWordProvider {
                 if (line.equals("")) {
                     continue;
                 }
+                if (line.contains("-")) {
+                    continue;
+                }
                 String[] spl = line.split(separator);
                 Row row = new Row(spl);
                 rows.add(row);
