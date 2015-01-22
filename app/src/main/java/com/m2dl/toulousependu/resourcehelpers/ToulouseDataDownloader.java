@@ -29,7 +29,7 @@ public class ToulouseDataDownloader extends AsyncTask<Activity, Integer, String>
             connection.connect();
 
             if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-                return "Could not update CSV: server returned HTTP " + connection.getResponseCode() + " " + connection.getResponseMessage();
+                return "Impossible de mettre à jour: server returned HTTP " + connection.getResponseCode() + " " + connection.getResponseMessage();
             }
 
             int fileLength = connection.getContentLength();
@@ -42,7 +42,7 @@ public class ToulouseDataDownloader extends AsyncTask<Activity, Integer, String>
                 output.write(b);
             }
         } catch (Exception e) {
-            return "Could not update CSV: " + e;
+            return "Impossible de mettre à jour: " + e;
         } finally {
             try {
                 input.close();
@@ -50,7 +50,7 @@ public class ToulouseDataDownloader extends AsyncTask<Activity, Integer, String>
             } catch (Exception e) { }
         }
 
-        return "Success";
+        return "Succès";
     }
 
     @Override
@@ -58,7 +58,7 @@ public class ToulouseDataDownloader extends AsyncTask<Activity, Integer, String>
         params[0].runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                ((TextView)params[0].findViewById(R.id.downloadTextView)).setText("Downloading...");
+                ((TextView)params[0].findViewById(R.id.downloadTextView)).setText("Téléchargement...");
             }
         });
 
