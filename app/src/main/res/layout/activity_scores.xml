@@ -53,8 +53,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
+        android:text="MENU"
+        android:background="@drawable/selector"
         android:id="@+id/backButton"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

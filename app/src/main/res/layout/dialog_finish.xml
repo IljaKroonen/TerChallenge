@@ -56,7 +56,7 @@
             />
         <TextView
             android:id="@+id/meilleurScore"
-            android:text="73"
+            android:text="ND"
             android:layout_marginLeft="50dp"            
             android:layout_marginRight="50dp"           
             android:textStyle="bold"
