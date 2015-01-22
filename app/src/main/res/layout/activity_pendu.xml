@@ -32,38 +32,55 @@
             android:src="@drawable/pendu"/>
 
         <com.m2dl.toulousependu.utils.DrawingView
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:layout_marginTop="50dp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/selector_drawing"
             android:id="@+id/pendu_tete"/>
 
-        <com.m2dl.toulousependu.utils.DrawingView
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/pendu_tete"
-            android:background="@drawable/selector_drawing"
-            android:id="@+id/pendu_corps"/>
+
+        <FrameLayout
+            android:id="@+id/viewMiddleInvisible2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pendu_tete"
+            android:layout_centerHorizontal="true"/>
+
+        <FrameLayout
+            android:id="@+id/viewMiddleInvisible3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/viewMiddleInvisible2"
+            android:layout_marginBottom="40dp"
+            android:layout_centerHorizontal="true"/>
+
 
         <com.m2dl.toulousependu.utils.DrawingView
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_toRightOf="@id/pendu_corps"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:background="@drawable/selector_drawing"
-            android:layout_below="@id/pendu_tete"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/pendu_bras_d"/>
+            android:id="@+id/pendu_corps"
+            android:layout_alignTop="@+id/viewMiddleInvisible3"
+            android:layout_alignStart="@+id/pendu_tete" />
 
         <com.m2dl.toulousependu.utils.DrawingView
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_toLeftOf="@id/pendu_corps"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/selector_drawing"
-            android:layout_below="@id/pendu_tete"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/pendu_bras_g"/>
+            android:id="@+id/pendu_bras_d"
+            android:layout_alignTop="@+id/viewMiddleInvisible3"
+            android:layout_toEndOf="@+id/viewMiddleInvisible2" />
+
+        <com.m2dl.toulousependu.utils.DrawingView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/selector_drawing"
+            android:id="@+id/pendu_bras_g"
+            android:layout_alignTop="@+id/viewMiddleInvisible3"
+            android:layout_toStartOf="@+id/viewMiddleInvisible2" />
 
         <FrameLayout
             android:id="@+id/viewMiddleInvisible"
@@ -73,21 +90,30 @@
             android:layout_below="@+id/pendu_corps"
             android:layout_centerHorizontal="true"/>
 
-        <com.m2dl.toulousependu.utils.DrawingView
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_toRightOf="@id/viewMiddleInvisible"
-            android:background="@drawable/selector_drawing"
-            android:layout_below="@+id/pendu_corps"
-            android:id="@+id/pendu_jambe_d"/>
+
+        <FrameLayout
+            android:id="@+id/viewMiddleInvisible4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/viewMiddleInvisible"
+            android:layout_marginBottom="40dp"
+            android:layout_centerHorizontal="true"/>
 
         <com.m2dl.toulousependu.utils.DrawingView
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_toLeftOf="@id/viewMiddleInvisible"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
             android:background="@drawable/selector_drawing"
-            android:layout_below="@+id/pendu_corps"
-            android:id="@+id/pendu_jambe_g"/>
+            android:id="@+id/pendu_jambe_d"
+            android:layout_alignTop="@+id/viewMiddleInvisible4"
+            android:layout_toEndOf="@+id/pendu_bras_g" />
+
+        <com.m2dl.toulousependu.utils.DrawingView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@drawable/selector_drawing"
+            android:id="@+id/pendu_jambe_g"
+            android:layout_alignTop="@+id/viewMiddleInvisible4"
+            android:layout_toStartOf="@+id/pendu_bras_d" />
     </RelativeLayout>
 
     <LinearLayout
