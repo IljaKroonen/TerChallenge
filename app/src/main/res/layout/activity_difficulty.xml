@@ -14,12 +14,15 @@
         android:layout_centerInParent="true"
         android:layout_height="wrap_content">
 
-    <com.m2dl.toulousependu.utils.ResizableImageView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="150dp"
-        android:layout_marginLeft="150dp"
-        android:src="@drawable/icone_pendu"/>
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:text="Choisis la difficulté"/>
 
     <Button
         android:layout_width="match_parent"
@@ -28,8 +31,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
-        android:text="@string/new_game"
-        android:onClick="newGame"/>
+        android:text="@string/facile"/>
 
     <Button
         android:layout_width="match_parent"
@@ -38,19 +40,26 @@
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:layout_marginTop="50dp"
-        android:text="@string/best_score"/>
+        android:text="@string/moyen"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:text="@string/difficile"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/extreme"/>
 
     </LinearLayout>
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/selector"
-        android:src="@drawable/unmute"
-        android:padding="10dp"
-        android:layout_marginRight="20dp"
-        android:text="@string/best_score"/>
 
 </RelativeLayout>
