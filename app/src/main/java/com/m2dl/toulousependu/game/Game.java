@@ -48,6 +48,10 @@ public class Game implements IGame {
                 (c.getTimeInMillis() - startTime.getTimeInMillis()) / 1000);
     }
 
+    public int getRemainingLives() {
+        return remainingLives;
+    }
+
     public boolean isFinishedP() {
         if (remainingLives <= 0) {
             return true;

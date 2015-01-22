@@ -38,7 +38,13 @@ import java.util.ArrayList;
 public class PenduActivity extends Activity{
 
 
-    private DrawingView pendu;
+//    private DrawingView pendu;
+    private DrawingView penduTete;
+    private DrawingView penduCorps;
+    private DrawingView penduBrasG;
+    private DrawingView penduBradD;
+    private DrawingView penduJambeG;
+    private DrawingView penduJambeD;
     private int difficulty;
     private Game game;
     private String mot ="";
@@ -50,11 +56,37 @@ public class PenduActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pendu);
+        initDrawingView();
         difficulty = getIntent().getIntExtra(DifficultyActivity.TAG_DIFFICULTE,1);
-        pendu = (DrawingView) findViewById(R.id.pendu);
-        pendu.setOnTouchListener(pendu);
+//        pendu = (DrawingView) findViewById(R.id.pendu);
+//        pendu.setOnTouchListener(pendu);
         affichageLettre();
         createDialog();
+    }
+
+    private void initDrawingView() {
+        penduTete = (DrawingView) findViewById(R.id.pendu_tete);
+        penduTete.setOnTouchListener(penduTete);
+        penduCorps = (DrawingView) findViewById(R.id.pendu_corps);
+        penduCorps.setOnTouchListener(penduCorps);
+        penduBrasG = (DrawingView) findViewById(R.id.pendu_bras_g);
+        penduBrasG.setOnTouchListener(penduBrasG);
+        penduBradD = (DrawingView) findViewById(R.id.pendu_bras_d);
+        penduBradD.setOnTouchListener(penduBradD);
+        penduJambeG = (DrawingView) findViewById(R.id.pendu_jambe_g);
+        penduJambeG.setOnTouchListener(penduJambeG);
+        penduJambeD = (DrawingView) findViewById(R.id.pendu_jambe_d);
+        penduJambeD.setOnTouchListener(penduJambeD);
+        disableDrawingView();
+    }
+
+    private void disableDrawingView() {
+        penduTete.setEnabled(false);
+        penduCorps.setEnabled(false);
+        penduBrasG.setEnabled(false);
+        penduBradD.setEnabled(false);
+        penduJambeG.setEnabled(false);
+        penduJambeD.setEnabled(false);
     }
 
     public void letter(View v) {
@@ -73,8 +105,38 @@ public class PenduActivity extends Activity{
         } else {
             button.setTextColor(Color.RED);
             button.setEnabled(false);
+            displayDrawZone();
         }
         resultatGame();
+    }
+
+    public void displayDrawZone() {
+        switch (game.getRemainingLives()) {
+            case 5 :
+                disableDrawingView();
+                penduTete.setEnabled(true);
+                break;
+            case 4 :
+                disableDrawingView();
+                penduCorps.setEnabled(true);
+                break;
+            case 3 :
+                disableDrawingView();
+                penduBrasG.setEnabled(true);
+                break;
+            case 2 :
+                disableDrawingView();
+                penduBradD.setEnabled(true);
+                break;
+            case 1 :
+                disableDrawingView();
+                penduJambeG.setEnabled(true);
+                break;
+            case 0 :
+                disableDrawingView();
+                penduJambeD.setEnabled(true);
+                break;
+        }
     }
 
 
@@ -129,6 +191,7 @@ public class PenduActivity extends Activity{
             @Override
             public void onClick(View v) {
 
+                finish();
             }
 
         });
