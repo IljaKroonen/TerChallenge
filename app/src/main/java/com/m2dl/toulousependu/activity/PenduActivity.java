@@ -103,12 +103,10 @@ public class PenduActivity extends Activity{
     }
 
 
-    private void gameOver() {
+    private void gameOver(boolean res) {
         MediaPlayer.create(getApplicationContext(), R.raw.whoosh).start();
 
-//        scoreDao.open();
-//        int bestScore = scoreDao.setScore(nbScore);
-//        scoreDao.close();
+
         dialog.show();
         dialog.setCancelable(false);
 
@@ -117,15 +115,11 @@ public class PenduActivity extends Activity{
         Button play = (Button) dialog.findViewById(R.id.buttonStart);
         Button leaderboard = (Button) dialog.findViewById(R.id.buttonScore);
 
-//        scoreDialog.setText(nbScore+"");
-//        best.setText(bestScore+"");
-
         play.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this,MainActivity.class);
-//                startActivity(intent);
+
             }
 
         });
@@ -134,8 +128,7 @@ public class PenduActivity extends Activity{
 
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this,LeaderBoard.class);
-//                startActivity(intent);
+
             }
 
         });
@@ -157,14 +150,14 @@ public class PenduActivity extends Activity{
 
 
     public void resultatGame(){
-
+        boolean res=true;
         if (game.isFinished() == true) {
 
             if (game.isVictory() == true) {
-                gameOver();
+                gameOver(true);
             }
             else {
-                gameOver();
+                gameOver(false);
             }
 
         }
