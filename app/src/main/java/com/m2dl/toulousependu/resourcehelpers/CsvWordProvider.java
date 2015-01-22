@@ -35,6 +35,7 @@ public class CsvWordProvider implements IWordProvider {
         } catch (Exception e) {
             is = context.getResources().openRawResource(resource);
         }
+        is = context.getResources().openRawResource(resource);
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"));
         reader.readLine();
