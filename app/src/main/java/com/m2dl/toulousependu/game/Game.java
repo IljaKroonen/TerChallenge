@@ -28,6 +28,10 @@ public class Game {
         return found;
     }
 
+    public char[] getFinishedWord() {
+        return word;
+    }
+
     public int getScore() {
         return 0;
     }
