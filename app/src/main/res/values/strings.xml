@@ -7,5 +7,9 @@
     <string name="action_settings">Settings</string>
     <string name="new_game">NOUVELLE PARTIE</string>
     <string name="best_score">MEILLEURE SCORE</string>
+    <string name="facile">FACILE</string>
+    <string name="moyen">MOYEN</string>
+    <string name="difficile">DIFFICILE</string>
+    <string name="extreme">EXTREME</string>
 
 </resources>
