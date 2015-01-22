@@ -53,6 +53,8 @@
         android:src="@drawable/unmute"
         android:padding="10dp"
         android:layout_marginRight="20dp"
-        android:text="@string/best_score"/>
+        android:text="@string/best_score"
+        android:onClick="toggleSound"
+        android:id="@+id/muteButton"/>
 
 </RelativeLayout>
